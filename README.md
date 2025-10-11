@@ -1,0 +1,2 @@
+# react-pokemon-zukan
+
