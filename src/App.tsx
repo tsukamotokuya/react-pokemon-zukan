@@ -4,6 +4,7 @@ import PokemonList from './pages/PokemonList';
 import PokemonDetail from './pages/PokemonDetail';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import './App.css';
 
 // QueryClientのインスタンスを作成
@@ -20,15 +21,16 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-gray-100 flex flex-col">
           <Header />
           <Navigation />
-          <main>
+          <main className="flex-1">
             <Routes>
               <Route path="/" element={<PokemonList />} />
               <Route path="/pokemon/:id" element={<PokemonDetail />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </BrowserRouter>
     </QueryClientProvider>
