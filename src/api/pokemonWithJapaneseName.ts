@@ -18,6 +18,8 @@ export interface PokemonWithJapaneseName {
   id: number;
   name: string;
   japaneseName: string;
+  url: string;
+  number: string;
   sprites: {
     front_default: string;
     other: {
@@ -128,6 +130,8 @@ export const fetchPokemonListWithJapaneseNames = async (
             id: pokemonDetail.id,
             name: pokemonDetail.name,
             japaneseName,
+            url: pokemon.url,
+            number: pokemonDetail.id.toString().padStart(3, '0'),
             sprites: pokemonDetail.sprites,
           };
         } catch (error) {
@@ -138,6 +142,8 @@ export const fetchPokemonListWithJapaneseNames = async (
             id: extractPokemonId(pokemon.url),
             name: pokemon.name,
             japaneseName: 'Unknown',
+            url: pokemon.url,
+            number: extractPokemonId(pokemon.url).toString().padStart(3, '0'),
             sprites: {
               front_default: '',
               other: {
@@ -186,6 +192,8 @@ export const fetchPokemonWithJapaneseName = async (
       id: pokemonDetail.id,
       name: pokemonDetail.name,
       japaneseName,
+      url: `https://pokeapi.co/api/v2/pokemon/${pokemonDetail.id}/`,
+      number: pokemonDetail.id.toString().padStart(3, '0'),
       sprites: pokemonDetail.sprites,
     };
   } catch (error) {
