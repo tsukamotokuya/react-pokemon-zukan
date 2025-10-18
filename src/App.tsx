@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PokemonList from './pages/PokemonList';
 import PokemonDetail from './pages/PokemonDetail';
 import Header from './components/Header';
+import Navigation from './components/Navigation';
 import './App.css';
 
 // QueryClientのインスタンスを作成
@@ -21,6 +22,7 @@ function App() {
       <BrowserRouter>
         <div className="min-h-screen bg-gray-100">
           <Header />
+          <Navigation />
           <main>
             <Routes>
               <Route path="/" element={<PokemonList />} />
