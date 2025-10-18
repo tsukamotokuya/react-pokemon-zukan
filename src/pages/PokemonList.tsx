@@ -4,6 +4,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { apiQueryKeys } from '../queryKeys';
 import { fetchPokemonListWithJapaneseNames, PokemonWithJapaneseName } from '../api/pokemonWithJapaneseName';
 import PokemonCard from '../components/PokemonCard';
+import PokemonCardSkeleton from '../components/PokemonCardSkeleton';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
@@ -75,11 +76,7 @@ const PokemonListSkeleton: React.FC = () => {
     <div className="p-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {[...Array(18)].map((_, index) => (
-          <div key={index} className="bg-white shadow-md rounded-lg p-4">
-            <Skeleton height={120} />
-            <Skeleton width={80} height={20} className="mt-2" />
-            <Skeleton width={100} height={16} className="mt-1" />
-          </div>
+          <PokemonCardSkeleton key={index} />
         ))}
       </div>
       <div className="h-10 flex items-center justify-center">
